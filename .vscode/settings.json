@@ -1,9 +1,9 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
-  "eslint.validate": ["javascript", "typescript"],
+  // "editor.codeActionsOnSave": {
+  //   // "source.fixAll.eslint": true
+  // },
+  // "eslint.validate": ["javascript", "typescript"],
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false

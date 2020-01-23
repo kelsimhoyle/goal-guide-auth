@@ -46,9 +46,10 @@ export const postLogin = async (req: Request, res: Response, next: NextFunction)
             return res.redirect("/login");
         }
         req.logIn(user, (err) => {
+            console.log("logging in")
             if (err) { return next(err); }
             req.flash("success", { msg: "Success! You are logged in." });
-            res.redirect(req.session.returnTo || "/");
+            res.status(200).send({loggedIn: true, user: user});
         });
     })(req, res, next);
 };
