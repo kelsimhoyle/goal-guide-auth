@@ -1,9 +1,17 @@
 import React from "react";
 
-export const Dashboard: React.FC = () => {
+
+interface PropsInterface {
+
+    loggedIn: {
+        loggedIn: boolean,
+        user: {}
+    }
+}
+export const Dashboard: React.FC<PropsInterface> = ({ loggedIn }) => {
     return (
         <div>
-            <h1>HELLLOOO</h1>
+            <h1>HELLLOOO {loggedIn ? loggedIn.user : "!!"} </h1>
         </div>
     )
 }

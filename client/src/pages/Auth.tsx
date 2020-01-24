@@ -3,13 +3,17 @@ import { Login } from "../components/Login";
 import { Register } from '../components/Register';
 
 interface PropsInterface {
-    action: string
+    action: string,
+    loggedIn: {
+        loggedIn: boolean,
+        user: {}
+    }
 }
 
-export const Auth: React.FC<PropsInterface> = ({ action }) => {
+export const Auth: React.FC<PropsInterface> = ({ action, loggedIn }) => {
     if (action === "register") {
         return (
-            <Register loggedIn={false} />
+            <Register loggedIn={loggedIn.loggedIn} />
         )
     } else {
         return (

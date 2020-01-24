@@ -5,19 +5,20 @@ import { WriteError } from "mongodb";
 
 
 export const postGoal = (req: Request, res: Response) => {
-    const { goal, completionDate, steps, costLoss, costGain, user } = req.body
+    const { goal, completionDate, steps, costLoss, costGain, userId } = req.body
+    console.log(req.body)
     const newGoal = new Goal({
         goal, 
         completionDate,
         steps, 
         costLoss,
         costGain,
-        user
+        user: userId
     })
 
     newGoal.save()
         .then(goal => {
-            User.findByIdAndUpdate({ _id: user }, { $push: { goals: goal._id } })
+            User.findByIdAndUpdate({ _id: userId }, { $push: { goals: goal._id } })
                 .then(user => res.status(200).send({goal, user}))
                 .catch(err => res.send(err))
         })

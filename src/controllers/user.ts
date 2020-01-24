@@ -387,3 +387,8 @@ export const postForgot = async (req: Request, res: Response, next: NextFunction
         res.redirect("/forgot");
     });
 };
+
+export const checkLogin = (req: Request, res: Response) => {
+    if(!req.user) res.send({loggedIn: false})
+    if (req.user) res.send({loggedIn: true, user: req.user})
+}

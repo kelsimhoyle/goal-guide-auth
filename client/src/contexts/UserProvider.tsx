@@ -1,4 +1,4 @@
-import React, {  useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { API } from "../utils/API";
 import { AxiosResponse } from "axios";
 
@@ -24,14 +24,14 @@ export const UserProvider: React.FC = ({ children }) => {
 
     return (
         <ContextProvider value={user}>
-          {children}
-      </ContextProvider>
+            {children}
+        </ContextProvider>
     );
 };
 
 export const AppContextConsumer = context.Consumer;
 
 // render all of the children
-// ContextProvider.context = context;
+// UserProvider.context = context;
 
 

@@ -1,27 +1,5 @@
 import axios from "axios";
-
-interface SignupInfo {
-    email: string,
-    password: string,
-    confirmPassword: string
-}
-
-interface LoginInfo {
-    email: string,
-    password: string
-}
-
-interface Goal {
-    goal: string,
-    completionDate: Date,
-    steps: {
-        miniGoal: string,
-        completionDate: Date
-    }[],
-    costLoss: string[],
-    costGain: string[],
-    userId: string
-}
+import {SignupInfo, LoginInfo, Goal} from "../types";
 
 class apiService {
     public signup(signupInfo: SignupInfo) {
@@ -33,27 +11,27 @@ class apiService {
     }
 
     public logout() {
-        return axios.get("/api/users/logout");
+        return axios.get("/logout");
     }
 
     public isLoggedIn() {
-        return axios.get("/api/users/profile");
+        return axios.get("/user/loggedin");
     }
 
-    public addGoal(goal: Goal) {
-        return axios.post("/api/goal", goal)
+    public postGoal(goal: Goal) {
+        return axios.post("/goal", goal)
     }
 
     public updateGoal(goal: Goal, goalId: string) {
-        return axios.put(`/api/goal/${goalId}`, goal)
+        return axios.post(`/goal/${goalId}`, goal)
     }
 
     public deleteGoal(goalId: string) {
-        return axios.delete(`/api/goal/${goalId}`)
+        return axios.delete(`/goal/${goalId}`)
     }
 
     public getGoals(userId: string) {
-        return axios.get(`/api/goals/${userId}`)
+        return axios.get(`/goals/${userId}`)
     }
 }
 

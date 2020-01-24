@@ -35,7 +35,8 @@ const goalSchema = new mongoose.Schema({
     costGain: [String],
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+        ref: "User",
+        required: true
     }
 })
 

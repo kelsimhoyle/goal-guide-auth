@@ -14,7 +14,7 @@ interface PropsInterface {
 }
 export const Register: React.FC<PropsInterface> = ({ loggedIn }) => {
     if (!loggedIn) console.log("not logged in")
-    if (loggedIn) console.log("YAY registered and logged in!")
+    if (loggedIn) window.location.href = "/dashboard";
 
     const [signupData, setSingnupData] = useState<SignupData>({
         email: "",
