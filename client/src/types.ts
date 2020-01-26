@@ -15,7 +15,7 @@ export interface Goal {
     steps: {
         miniGoal: string;
         completionDate: string;
-    }[] | [],
+    }[],
     costLoss: string[];
     costGain: string[];
     userId: string;

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Col, Row, Card, CardTitle } from "reactstrap";
 import { AddGoal } from '../components/AddGoal';
 import { AddSteps } from '../components/AddSteps';
+import { ViewGoal } from '../components/ViewGoal';
 import { Goal, User } from '../types';
 import { API } from '../utils/API';
 
@@ -41,30 +43,53 @@ export const SetGoal: React.FC = () => {
             .catch(err => console.log(err))
     }
 
-    switch (step) {
-        case 1:
-            return (
-                <AddGoal
-                    goal={goal}
-                    setStep={setStep}
-                    handleChange={handleChange}
-                />)
-        case 2:
-            return (
-                <AddSteps
-                    goal={goal}
-                    setGoal={setGoal}
-                    setStep={setStep}
-                    submitGoal={submitGoal}
-                />
-            )
-        default:
-            return (
-                <AddGoal
-                    goal={goal}
-                    setStep={setStep}
-                    handleChange={handleChange}
-                />)
+    const renderStep = (step: number) => {
+        switch (step) {
+            case 1:
+                return (
+                    <AddGoal
+                        goal={goal}
+                        setStep={setStep}
+                        handleChange={handleChange}
+                        setGoal={setGoal}
+                    />)
+            case 2:
+                return (
+                    <AddSteps
+                        goal={goal}
+                        setGoal={setGoal}
+                        setStep={setStep}
+                        submitGoal={submitGoal}
+                    />
+                )
+            default:
+                return (
+                    <AddGoal
+                        goal={goal}
+                        setStep={setStep}
+                        handleChange={handleChange}
+                        setGoal={setGoal}
+                    />)
+        }
     }
+
+    return (
+        <Row>
+            <Col md={6} sm={12}>
+                <Card body>
+                    <CardTitle tag="h3">Let's Make a Goal!</CardTitle>
+                    <hr />
+                    {renderStep(step)}
+                </Card>
+            </Col>
+            <Col md={6} sm={12}>
+                <h2>Your Goal</h2>
+                <ViewGoal goal={goal} />
+            </Col>
+        </Row>
+    )
+
+
+
 
 }

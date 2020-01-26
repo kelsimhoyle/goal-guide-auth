@@ -7,7 +7,7 @@ interface UserContext {
     user: {}
 }
 
-const context = React.createContext<UserContext | null>(null);
+const context = React.createContext<UserContext>({ loggedIn: false, user: {} });
 export const ContextProvider = context.Provider
 // wrapper to go around components to get data
 export const UserProvider: React.FC = ({ children }) => {

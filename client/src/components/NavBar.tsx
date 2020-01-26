@@ -55,8 +55,8 @@ export const NavBar: React.FC<PropsInterface> = ({ user, handleLogout }) => {
                                     </DropdownItem>
                                     <DropdownItem divider />
                                     <DropdownItem>
-                                        Reset
-                </DropdownItem>
+                                        <NavLink href="/addgoal">Create a Goal</NavLink>
+                                    </DropdownItem>
                                 </DropdownMenu>
                             ) : (
                                     <DropdownMenu right>
