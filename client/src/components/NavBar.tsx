@@ -33,29 +33,25 @@ export const NavBar: React.FC<PropsInterface> = ({ user, handleLogout }) => {
                 <NavbarBrand href="/">Goal Guide</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem>
-                            <NavLink href="/components/">Components</NavLink>
-                        </NavItem>
-                        <NavItem>
-                            <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                        </NavItem>
+                    <Nav className="ml-auto" navbar>
+
                         <UncontrolledDropdown nav inNavbar>
                             <DropdownToggle nav caret>
-                                Options
+                                Your Account
                                 </DropdownToggle>
                             {user.loggedIn ? (
 
                                 <DropdownMenu right>
-                                    <DropdownItem onClick={handleLogout}>
-                                        Logout
-                                    </DropdownItem>
+
                                     <DropdownItem>
                                         Home
                                     </DropdownItem>
-                                    <DropdownItem divider />
+                                    <DropdownItem />
                                     <DropdownItem>
                                         <NavLink href="/addgoal">Create a Goal</NavLink>
+                                    </DropdownItem>
+                                    <DropdownItem onClick={handleLogout}>
+                                        Logout
                                     </DropdownItem>
                                 </DropdownMenu>
                             ) : (
@@ -66,15 +62,14 @@ export const NavBar: React.FC<PropsInterface> = ({ user, handleLogout }) => {
                                         <DropdownItem>
                                             Home
                                     </DropdownItem>
-                                        <DropdownItem divider />
+                                        <DropdownItem />
                                         <DropdownItem>
-                                            Reset
-                </DropdownItem>
+                                            <NavLink href="/register">Create an Account</NavLink>
+                                        </DropdownItem>
                                     </DropdownMenu>
                                 )}
                         </UncontrolledDropdown>
                     </Nav>
-                    <NavbarText>Simple Text</NavbarText>
                 </Collapse>
             </Navbar>
         </div>

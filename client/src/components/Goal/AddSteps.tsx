@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
-import { Goal } from '../types';
+import { Goal } from '../../types';
 
 interface PropsInterface {
     goal: Goal;

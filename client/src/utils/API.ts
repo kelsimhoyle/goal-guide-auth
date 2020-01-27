@@ -1,5 +1,5 @@
 import axios from "axios";
-import {SignupInfo, LoginInfo, Goal} from "../types";
+import { SignupInfo, LoginInfo, Goal, User, Profile } from '../types';
 
 class apiService {
     public signup(signupInfo: SignupInfo) {
@@ -16,6 +16,10 @@ class apiService {
 
     public isLoggedIn() {
         return axios.get("/user/loggedin");
+    }
+
+    public updateProfile(profile: Profile) {
+        return axios.post("/account/profile", profile)
     }
 
     public getUserGoals(userId: string) {

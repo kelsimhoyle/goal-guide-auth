@@ -1,5 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import { Redirect, RouteProps } from 'react-router-dom';
+import { Spinner } from "reactstrap";
 import { context } from '../contexts/UserProvider';
 
 
@@ -13,7 +14,8 @@ export const PrivateRoute: React.FC<RouteProps> = ({ children }) => {
 
     return (
         <Fragment>
-            {!user.loading ? renderContent() : "loading"}
+            {!user.loading ? renderContent() : <Spinner style={{ width: '3rem', height: '3rem' }} type="grow" color="info" />
+            }
         </Fragment>
     )
 }

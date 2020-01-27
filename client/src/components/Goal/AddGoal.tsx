@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button, Badge, Row, Col } from 'reactstrap';
-import { Goal } from '../types';
+import { Goal } from '../../types';
 
 interface PropsInterface {
     goal: Goal;
@@ -39,18 +39,14 @@ export const AddGoal: React.FC<PropsInterface> = ({ goal, setStep, handleChange,
                 />
             </FormGroup>
             <FormGroup>
-                <Label for="goalType">Goal Type</Label>
+                <Label for="goalType">What type of goal is this? Personal, professional, health, or anything else!</Label>
                 <Input
-                    type="select"
+                    plaintext
                     name="goalType"
                     id="goalType"
+                    value={goal.goalType}
                     onChange={e => handleChange(e)}
-                >
-                    <option>Personal</option>
-                    <option>Professional</option>
-                    <option>Health</option>
-                    <option>Relationship</option>
-                </Input>
+                />
             </FormGroup>
             <FormGroup>
                 <Label for="completionDate">Completion Date</Label>
@@ -61,7 +57,6 @@ export const AddGoal: React.FC<PropsInterface> = ({ goal, setStep, handleChange,
                     placeholder="date placeholder"
                     value={goal.completionDate}
                     onChange={e => handleChange(e)}
-
                 />
             </FormGroup>
             <FormGroup>

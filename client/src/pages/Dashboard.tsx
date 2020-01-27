@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { context } from '../contexts/UserProvider';
 import { API } from "../utils/API";
-import { ViewGoal } from '../components/ViewGoal';
+import { ViewGoal } from '../components/Goal/ViewGoal';
 import { Goal } from '../types';
 
 
@@ -28,7 +28,7 @@ export const Dashboard: React.FC = () => {
     console.log(goals)
     return (
         <div>
-            <h2>Hello, {user.user.email}</h2>
+            <h2>Hello, {user.user.profile.name || user.user.email}</h2>
             {goals.map((goal: Goal) => <ViewGoal goal={goal} />)}
         </div>
     )

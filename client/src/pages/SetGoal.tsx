@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Col, Row, Card, CardTitle } from "reactstrap";
-import { AddGoal } from '../components/AddGoal';
-import { AddSteps } from '../components/AddSteps';
-import { ViewGoal } from '../components/ViewGoal';
+import { AddGoal } from '../components/Goal/AddGoal';
+import { AddSteps } from '../components/Goal/AddSteps';
+import { ViewGoal } from '../components/Goal/ViewGoal';
 import { Goal, User } from '../types';
 import { API } from '../utils/API';
 
@@ -34,6 +34,8 @@ export const SetGoal: React.FC = () => {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
+        console.log(name, value)
+
         setGoal({ ...goal, [name]: value })
     }
 

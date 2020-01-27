@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardTitle, CardText } from 'reactstrap';
 import { StepDisplay } from "./StepDisplay";
-import { Goal } from "../types"
+import { Goal } from "../../types"
 
 interface PropsInterface {
     goal: Goal;

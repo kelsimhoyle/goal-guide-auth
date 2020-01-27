@@ -30,7 +30,6 @@ bower_components
 
 # Editors
 .idea
-.travis.yml
 *.iml
 
 # OS metadata

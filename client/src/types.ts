@@ -47,3 +47,11 @@ export interface User {
 
     goals: Goal[]
 }
+
+export interface Profile {
+    email: string;
+    name: string;
+    gender: string;
+    location: string;
+    website: string;
+}
