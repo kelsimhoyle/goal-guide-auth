@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
+import { Card, CardTitle, CardText } from 'reactstrap';
 import { StepDisplay } from "./StepDisplay";
 import { Goal } from "../types"
 

@@ -44,7 +44,7 @@ const App: React.FC = () => {
           <Route exact path="/register" component={() => <Auth action="register" loggedIn={loggedIn} />} />
 
           <PrivateRoute>
-            <Route exact path="/dashboard" component={Dashboard} loggedIn={loggedIn} />
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/addgoal" component={SetGoal} />
             <Route exact path="/profile" component={Profile} />
           </PrivateRoute>

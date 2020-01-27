@@ -1,11 +1,9 @@
 import { Goal} from '../models/Goal';
 import { User } from '../models/User';
 import { Request, Response, NextFunction } from "express";
-import { WriteError } from "mongodb";
-
 
 export const postGoal = (req: Request, res: Response) => {
-    const { goal, completionDate, steps, costLoss, costGain, userId } = req.body
+    const { goal, completed, goalType, completionDate, steps, costLoss, costGain, userId } = req.body
     console.log(req.body)
     const newGoal = new Goal({
         goal, 
@@ -32,8 +30,8 @@ export const getGoal = (req: Request, res: Response) => {
   }
 
   export const updateGoal = (req: Request, res: Response) => {
-    const { goalId, goal, completionDate, steps, costLoss, costGain } = req.body;
-    Goal.findByIdAndUpdate({ _id: goalId }, { goal, completionDate, steps, costLoss, costGain })
+    const { goalId, goal, completed, goalType, completionDate, steps, costLoss, costGain } = req.body;
+    Goal.findByIdAndUpdate({ _id: goalId }, { goal, completed, goalType, completionDate, steps, costLoss, costGain })
       .then(goal => res.status(200).send(goal))
       .catch(err => res.send(err))
   }

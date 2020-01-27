@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Login } from "../components/Login";
 import { Register } from '../components/Register';
+import { context } from '../contexts/UserProvider';
+import { Redirect } from 'react-router-dom';
 
 interface PropsInterface {
     action: string,
@@ -11,13 +13,29 @@ interface PropsInterface {
 }
 
 export const Auth: React.FC<PropsInterface> = ({ action, loggedIn }) => {
-    if (action === "register") {
-        return (
-            <Register loggedIn={loggedIn.loggedIn} />
-        )
-    } else {
-        return (
-            <Login />
-        )
+    const user = useContext(context);
+    console.log(user)
+
+    const renderComponent = () => {
+        if (action === "register") {
+            return (
+                <Register loggedIn={loggedIn.loggedIn} />
+            )
+        } else {
+            return (
+                <Login />
+            )
+        }
+
     }
+
+    return (
+        <>
+            {user.loggedIn ? (
+                <Redirect to="/dashboard" />
+            ) : (
+                    renderComponent()
+                )}
+        </>
+    )
 }

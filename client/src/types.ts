@@ -11,6 +11,7 @@ export interface LoginInfo {
 
 export interface Goal {
     goal: string;
+    goalType: string;
     completionDate: string;
     steps: {
         miniGoal: string;
@@ -31,7 +32,7 @@ export interface User {
     email: string;
     password: string;
     passwordResetToken: string;
-    passwordResetExpires: Date;
+    passwordResetExpires: Date | string;
 
     facebook: string;
     tokens: AuthToken[];
@@ -43,4 +44,6 @@ export interface User {
         website: string;
         picture: string;
     };
+
+    goals: Goal[]
 }

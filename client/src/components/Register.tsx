@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { API } from '../utils/API';
-// import { ContextProvider } from '../contexts/UserProvider';
 
 interface SignupData {
     email: string,
@@ -13,9 +12,6 @@ interface PropsInterface {
     loggedIn: boolean
 }
 export const Register: React.FC<PropsInterface> = ({ loggedIn }) => {
-    if (!loggedIn) console.log("not logged in")
-    if (loggedIn) window.location.href = "/dashboard";
-
     const [signupData, setSingnupData] = useState<SignupData>({
         email: "",
         password: "",
@@ -42,6 +38,7 @@ export const Register: React.FC<PropsInterface> = ({ loggedIn }) => {
     }
 
     return (
+
         <Form onSubmit={e => handleSubmit(e)}>
             <FormGroup>
                 <Label for="email">Email</Label>

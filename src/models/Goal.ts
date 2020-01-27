@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 
 export type GoalDocument = mongoose.Document & {
     goal: string;
+    completed: boolean;
+    goalType: string;
     completionDate: Date;
     steps: [{
         miniGoal: string;
@@ -16,6 +18,13 @@ const goalSchema = new mongoose.Schema({
     goal: {
         type: String,
         required: true
+    },
+    completed: {
+        type: Boolean,
+        required: true
+    },
+    goalType: {
+        type: String
     },
     completionDate: {
         type: Date,

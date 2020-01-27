@@ -1,17 +1,35 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { context } from '../contexts/UserProvider';
+import { API } from "../utils/API";
+import { ViewGoal } from '../components/ViewGoal';
+import { Goal } from '../types';
 
 
-interface PropsInterface {
+export const Dashboard: React.FC = () => {
+    const user = useContext(context)
+    const [goals, setGoals] = useState<Goal[]>([{
+        goal: "",
+        goalType: "",
+        completionDate: "",
+        steps: [{
+            miniGoal: "",
+            completionDate: ""
+        }],
+        costLoss: [],
+        costGain: [],
+        userId: ""
+    }])
+    useEffect(() => {
+        API.getUserGoals(user.user._id)
+            .then(data => setGoals(data.data))
+            .catch(err => console.log(err))
+    }, [user])
 
-    loggedIn: {
-        loggedIn: boolean,
-        user: {}
-    }
-}
-export const Dashboard: React.FC<PropsInterface> = ({ loggedIn }) => {
+    console.log(goals)
     return (
         <div>
-            <h1>HELLLOOO {loggedIn ? loggedIn.user : "!!"} </h1>
+            <h2>Hello, {user.user.email}</h2>
+            {goals.map((goal: Goal) => <ViewGoal goal={goal} />)}
         </div>
     )
 }

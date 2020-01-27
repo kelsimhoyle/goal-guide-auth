@@ -13,6 +13,7 @@ interface PropsInterface {
 export const SetGoal: React.FC = () => {
     const [goal, setGoal] = useState<Goal>({
         goal: "",
+        goalType: "",
         completionDate: "",
         steps: [],
         costLoss: [],
@@ -29,7 +30,7 @@ export const SetGoal: React.FC = () => {
                 setGoal({ ...goal, userId: data.data.user._id })
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [goal])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;

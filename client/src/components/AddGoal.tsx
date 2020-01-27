@@ -39,6 +39,20 @@ export const AddGoal: React.FC<PropsInterface> = ({ goal, setStep, handleChange,
                 />
             </FormGroup>
             <FormGroup>
+                <Label for="goalType">Goal Type</Label>
+                <Input
+                    type="select"
+                    name="goalType"
+                    id="goalType"
+                    onChange={e => handleChange(e)}
+                >
+                    <option>Personal</option>
+                    <option>Professional</option>
+                    <option>Health</option>
+                    <option>Relationship</option>
+                </Input>
+            </FormGroup>
+            <FormGroup>
                 <Label for="completionDate">Completion Date</Label>
                 <Input
                     type="date"

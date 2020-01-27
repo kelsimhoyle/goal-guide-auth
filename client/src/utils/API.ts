@@ -18,6 +18,10 @@ class apiService {
         return axios.get("/user/loggedin");
     }
 
+    public getUserGoals(userId: string) {
+        return axios.get(`/user/goals/${userId}`);
+    }
+
     public postGoal(goal: Goal) {
         return axios.post("/goal", goal)
     }
